@@ -1,0 +1,53 @@
+@use './ds-colors' as *;
+
+@mixin phnm-shadow-05() {
+  box-shadow: 0px 2px 3px 0px rgba($N500, 0.15);
+}
+
+@mixin phnm-shadow-10() {
+  box-shadow: 0px 2px 14px 0px rgba($N500, 0.15);
+}
+
+@mixin phnm-shadow-20() {
+  box-shadow: 0px 2px 4px 0px rgba($B500, 0.2), 0px 1px 10px 0px rgba($B500, 0.12), 0px 2px 5px 0px rgba($B500, 0.14);
+}
+
+@mixin phnm-shadow-30() {
+  box-shadow: 0px 4px 12px 0px rgba($N500, 0.40);
+}
+
+@mixin phnm-shadow-40() {
+  box-shadow: 0px 12px 25px 0px rgba($N500, 0.40), 0px 0px 4px 0px rgba($N500, 0.30);
+}
+
+@mixin phnm-shadow-depth-05() {
+  box-shadow: 0px 2px 3px 0px rgba(53, 59, 70, 0.15);
+}
+
+@mixin phnm-shadow-depth-1() {
+  box-shadow: 0px 2px 14px 0px rgba(53, 59, 70, 0.15);
+}
+
+@mixin phnm-shadow-depth-2() {
+  box-shadow: 0px 2px 4px 0px rgba(12, 11, 59, 0.20), 0px 1px 10px 0px rgba(12, 11, 59, 0.12), 0px 2px 5px 0px rgba(12, 11, 59, 0.14);
+}
+
+@mixin phnm-shadow-depth-3() {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@mixin phnm-shadow-depth-4() {
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+}
+
+@mixin phnm-shadow-depth-5() {
+  box-shadow: 25px 0px 20px rgba(0, 0, 0, 0.01);
+}
+
+@mixin phnm-shadow-depth-6() {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin phnm-shadow-sort() {
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+} 
