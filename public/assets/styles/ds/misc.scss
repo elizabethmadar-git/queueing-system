@@ -1,0 +1,106 @@
+@use './ds-colors' as *;
+
+.scrollable {
+  /**
+  * Custom Scrollbar
+  **/
+  overflow-y: auto !important;
+  /*Firefox*/
+  scrollbar-width: thin;
+  scrollbar-color: $N300 $N50;
+
+  &::-webkit-scrollbar-track {
+    /*Chrome*/
+    background-color: $N100;
+    width: 4px;
+    border-radius: 10px;
+  }
+}
+
+/*Edge*/
+@supports (-ms-ime-align:auto) {
+  .scrollable {
+    margin-right: -10px;
+    padding-top: 16px;
+    margin-top: -16px;
+    margin-bottom: -16px;
+    padding-bottom: 16px;
+
+    &::after {
+      content: "";
+      height: 16px;
+      display: block;
+    }
+  }
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: $N200;
+  border: 1px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pp-ds-scroll-bar {
+  overflow-y: auto !important;
+  scrollbar-width: 6px;
+  scrollbar-color: $N100;
+
+  &::-webkit-scrollbar-track {
+    width: 6px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $N100;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 5px;
+    min-height: 80px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 11px;
+  }
+}
+
+.ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.textarea-placeholder {
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $N300;
+  }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $N300;
+  }
+  &:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $N300;
+  }
+  &::-webkit-input-placeholder {
+    /* Webkit based */
+    color: $N300;
+  }
+  &::placeholder {
+    /* Modern browsers */
+    color: $N300;
+  }
+}
+
+.available-width {
+  /* autoprefixer: off */
+  width: -webkit-fill-available; /* For Safari */
+  width: -moz-available; /* For Firefox */
+  width: fill-available; /* For other browsers */
+
+}

@@ -1,0 +1,233 @@
+// Typography mixins that mirror DS phnm-* classes without emitting global CSS
+
+// Font weights
+@mixin phnm-font-light() {
+  font-weight: 300;
+}
+
+@mixin phnm-font-regular() {
+  font-weight: 400;
+}
+
+@mixin phnm-font-medium() {
+  font-weight: 500;
+}
+
+@mixin phnm-font-semiBold() {
+  font-weight: 600;
+}
+
+@mixin phnm-font-bold() {
+  font-weight: 700;
+}
+
+// Font families
+@mixin phnm-font-family-light() {
+  font-family: 'PoppinsLight', sans-serif;
+  font-weight: 300;
+}
+
+@mixin phnm-font-family-regular() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-weight: 400;
+}
+
+@mixin phnm-font-family-bold() {
+  font-family: 'PoppinsBold', sans-serif;
+  font-weight: 700;
+}
+
+@mixin phnm-font-family-semibold() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-weight: 600;
+}
+
+// Headings
+@mixin phnm-headline-1() {
+  font-family: 'PoppinsBold', sans-serif;
+  font-size: 96px;
+  line-height: 144px;
+  @include phnm-font-bold();
+}
+
+@mixin phnm-headline-2() {
+  font-family: 'PoppinsLight', sans-serif;
+  font-size: 60px;
+  line-height: 90px;
+  letter-spacing: -0.5px;
+  @include phnm-font-light();
+}
+
+@mixin phnm-headline-3() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 48px;
+  line-height: 72px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-headline-4() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 34px;
+  line-height: 52px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-headline-5() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.18px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-headline-6() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  @include phnm-font-semiBold();
+}
+
+// Subtitles
+@mixin phnm-subtitle-1() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-subtitle-2() {
+  font-family: 'PoppinsBold', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  @include phnm-font-bold();
+}
+
+// Body
+@mixin phnm-body-1() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  @include phnm-font-regular();
+}
+
+@mixin phnm-body-1-medium() {
+  @include phnm-body-1();
+  @include phnm-font-medium();
+}
+
+@mixin phnm-body-1-accented() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-body-2() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  @include phnm-font-regular();
+}
+
+@mixin phnm-body-2-link() {
+  @include phnm-body-2();
+  text-decoration-line: underline;
+}
+
+@mixin phnm-body-2-medium() {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  @include phnm-font-medium();
+}
+
+@mixin phnm-body-2-medium-link() {
+  @include phnm-body-2-medium();
+  text-decoration-line: underline;
+}
+
+@mixin phnm-body-2-accented() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-body-2-accented-link() {
+  @include phnm-body-2-accented();
+  text-decoration-line: underline;
+}
+
+@mixin phnm-body-3() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  @include phnm-font-regular();
+}
+
+@mixin phnm-body-3-link() {
+  @include phnm-body-3();
+  text-decoration-line: underline;
+}
+
+@mixin phnm-body-3-medium() {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  @include phnm-font-medium();
+}
+
+@mixin phnm-body-3-medium-link() {
+  @include phnm-body-3-medium();
+  text-decoration-line: underline;
+}
+
+@mixin phnm-body-3-accented() {
+  @include phnm-body-3();
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-body-3-accented-link() {
+  @include phnm-body-3-accented();
+  text-decoration-line: underline;
+}
+
+// Misc
+@mixin phnm-caption() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  @include phnm-font-regular();
+}
+
+@mixin phnm-caption-small() {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  @include phnm-font-regular();
+}
+
+@mixin phnm-overline() {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  @include phnm-font-semiBold();
+}
+
+@mixin phnm-button() {
+  font-family: "PoppinsSemiBold", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: .25px;
+  @include phnm-font-semiBold();
+} 

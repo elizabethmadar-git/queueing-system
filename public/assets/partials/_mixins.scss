@@ -1,0 +1,219 @@
+@use '../styles/ds/ds-colors' as *;
+
+$columns: 100;
+$emit-utilities: false !default;
+@mixin col-x-list {
+  @for $i from 1 through $columns {
+    .p-#{$i} {padding:#{$i+"px"}};
+    .p-l-#{$i} {padding-left:#{$i+"px"}};
+    .p-r-#{$i} {padding-right:#{$i+"px"}};
+    .p-b-#{$i} {padding-bottom:#{$i+"px"}};
+    .p-t-#{$i} {padding-top:#{$i+"px"}};
+    .m-t-#{$i} {margin-top:#{$i+"px"}};
+    .n-m-l-#{$i} {margin-left:#{-$i+"px"}};
+    .f-s-#{$i} {font-size: #{$i+"px"};}
+
+  }
+}
+@if $emit-utilities {
+  @include col-x-list;
+}
+
+@mixin setFont($family,$size, $lineH) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $lineH;
+
+}
+
+@mixin setLoadingAnimationDimension($width, $height) {
+      display: block;
+      width : $width;
+      height : $height;
+      animation: loading 1.7s infinite linear;
+      background-color: $N75;
+      background-image: -webkit-linear-gradient(90deg, $N75 0%, $N50 46%, $N75 100%);
+      background-image: linear-gradient(90deg, $N75 0%, $N50 46%, $N75 100%);
+      background-repeat: no-repeat;
+  @keyframes loading {
+    0% { background-position  : -$width; }
+    100% { background-position : $width*1.5; }
+  }
+}
+
+// use where you need to add color to svg using ng-deep
+@mixin svg-fill-color($color, $global: false) {
+  @if $global {
+    svg {
+      fill: $color
+    }
+  }
+  @else {
+    ::ng-deep {
+      svg {
+        fill: $color;
+      }
+    }
+  }
+}
+
+@mixin path-fill-color($color, $global: false) {
+  @if $global {
+    svg {
+      path {
+        fill: $color;
+      }
+    }
+  }
+  @else {
+    ::ng-deep {
+      svg {
+        path {
+          fill: $color
+        }
+      }
+    }
+  }
+}
+
+/**
+* Limit text display after specific number of lines and
+* show 3 dots after last line end
+*/
+@mixin ph-line-clamp($number-of-lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $number-of-lines;
+  line-clamp: $number-of-lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin svg-rotate($degrees) {
+  ::ng-deep {
+    svg {
+      transform: rotate($degrees);
+    }
+  }
+}
+
+@mixin transparentBackgroundColorMixin($alpha, $color) {
+  background-color: rgba(red($color), green($color), blue($color), $alpha);
+}
+
+@mixin svgTextStyles($family, $size, $weight, $color) {
+  ::ng-deep {
+    svg {
+      text {
+        font-family: $family;
+        font-size: $size;
+        font-weight: $weight;
+        fill: $color;
+      }
+    }
+  }
+}
+
+// Named outside Bootstrap's $colors to avoid clashing with bootstrap/scss/_root.scss
+$pp-ds-palette: (
+  primary: (
+    light: #EDF9FA,
+    mid-light: #C4F3F6,
+    main: #01B2C0,
+    mid-dark: #008893,
+    dark: #006770,
+  ),
+  secondary: (
+    light: #E4DDFC,
+    mid-light: #B0A4FF,
+    main: #9383FE,
+    mid-dark: #6256CA,
+    dark: #483DAD,
+  ),
+  gray: (
+    light: #CBD6E2,
+    mid-light: #A2A2A2,
+    mid-dark: #404040,
+    dark: #171516,
+    main: #525252,
+  ),
+  neutral: (
+    light-bg: #F0F0F0,
+    mid-light: #BDC1CC,
+    mid-dark: #8A94A3,
+    main: #4B6479,
+    dark: #43515C,
+  ),
+  blue: (
+    light-bg: #DCF2FF,
+    mid-light: #52BCFF,
+    main: #0093F0,
+    dark: #013D89,
+    mid-dark: #0158C5,
+  ),
+  accent : (
+    accent-main: #E1E8FD,
+    accent-light: #EEF3FD,
+    accent-dark: #C9D5F8,
+  ),
+  background: (
+    main: #F4F8FF,
+    white: #FFFFFF,
+  ),
+  error: (
+    light: #FFF1F0,
+    mid-light: #FF958F,
+    main: #FF5630,
+    mid-dark: #DE350B,
+    dark: #D41F16,
+  ),
+  warning: (
+    light: #FFFAE6,
+    mid-light: #FFCD92,
+    main: #FF8B00,
+    mid-dark:#DF6E38,
+    dark: #C24B00,
+  ),
+  success: (
+    light: #E6F9F3,
+    mid-light: #85DBBE,
+    main: #36B37E,
+    mid-dark: #00875A,
+    dark: #006644,
+  ),
+  elements: (
+    element1: #C80090,
+    element2: #F2DA04,
+    element3: #7BB32E,
+    element4: #6F4416,
+    element5: #FF4DAA,
+  )
+);
+@mixin color-modifiers($attribute: 'color', $prefix: '-', $separator: '-') {
+  @each $name, $color in $pp-ds-palette {
+    &#{$prefix}#{"" + $name} {
+      @each $tone, $hex in $color {
+        &#{$separator}#{"" + $tone} {
+          #{$attribute}: $hex;
+        }
+      }
+    }
+  }
+}
+@if $emit-utilities {
+  .pp-ds-color {
+    @include color-modifiers()
+  }
+  .pp-ds-background {
+    @include color-modifiers('background')
+  }
+  .pp-ds-border {
+    @include color-modifiers('border-color')
+  }
+}
